@@ -78,7 +78,7 @@ app.get('/getactors', (req, res) => {
 });
 
 app.get('/getactor/:id', (req, res) => {
-    let sql = `SELECT * FROM actor WHERE id = ${req.params.id}`;
+    let sql = `SELECT * FROM actor WHERE actor_id = ${req.params.id}`;
     let query = db.query(sql, (err, results) => {
         if(err) throw err;
         console.log(results);
@@ -96,7 +96,7 @@ app.get('/getcustomer', (req, res) => {
 });
 
 app.get('/getcustomer/:id', (req, res) => {
-    let sql = `SELECT * FROM customer WHERE id = ${req.params.id}`;
+    let sql = `SELECT * FROM customer WHERE customer_id = ${req.params.id}`;
     let query = db.query(sql, (err, results) => {
         if(err) throw err;
         console.log(results);
