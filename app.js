@@ -77,6 +77,33 @@ app.get('/getactors', (req, res) => {
     });
 });
 
+app.get('/getactor/:id', (req, res) => {
+    let sql = `SELECT * FROM actor WHERE id = ${req.params.id}`;
+    let query = db.query(sql, (err, results) => {
+        if(err) throw err;
+        console.log(results);
+        res.send(results);
+    });
+});
+
+app.get('/getcustomer', (req, res) => {
+    let sql = 'SELECT * FROM customer';
+    let query = db.query(sql, (err, results) => {
+        if(err) throw err;
+        console.log(results);
+        res.send(results);
+    });
+});
+
+app.get('/getcustomer/:id', (req, res) => {
+    let sql = `SELECT * FROM customer WHERE id = ${req.params.id}`;
+    let query = db.query(sql, (err, results) => {
+        if(err) throw err;
+        console.log(results);
+        res.send(results);
+    });
+});
+
 // Select single post
 app.get('/getpost/:id', (req, res) => {
     let sql = `SELECT * FROM posts WHERE id = ${req.params.id}`;
