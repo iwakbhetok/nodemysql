@@ -1,13 +1,14 @@
 const express = require('express');
 const mysql = require('mysql');
+require('dotenv').config();
 
 // Create connection
 const db = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'temandig_test',
-    password : 'QWERTY!@#$%^',
+    host     : process.env.HOST,
+    user     : process.env.USERNAME,
+    password : process.env.PASS,
     port: 3306,
-    database:'temandig_sakila'
+    database: process.env.DB
 });
 
 // Connect
